@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\Response;
-use App\Models\Permisssion;
+use App\Models\Permission;
 use App\Models\User;
 
 class PermisssionPolicy
@@ -19,7 +19,7 @@ class PermisssionPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Permisssion $permisssion): bool
+    public function view(User $user, Permission $permisssion): bool
     {
         //
     }
@@ -35,7 +35,7 @@ class PermisssionPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Permisssion $permisssion): bool
+    public function update(User $user, Permission $permisssion): bool
     {
         //
     }
@@ -43,7 +43,7 @@ class PermisssionPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Permisssion $permisssion): bool
+    public function delete(User $user, Permission $permisssion): bool
     {
         //
     }
@@ -51,7 +51,7 @@ class PermisssionPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Permisssion $permisssion): bool
+    public function restore(User $user, Permission $permisssion): bool
     {
         //
     }
@@ -59,7 +59,7 @@ class PermisssionPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Permisssion $permisssion): bool
+    public function forceDelete(User $user, Permission $permisssion): bool
     {
         //
     }

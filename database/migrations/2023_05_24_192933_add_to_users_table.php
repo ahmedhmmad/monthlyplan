@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //$table->string('username')->unique()->index();
-            //$table->foreignId('role_id')->constrained('roles','id')->onDelete('cascade');
-           // $table->foreignId('department_id')->nullable()->constrained('departments')->cascadeOnUpdate()->nullOnDelete();
-            //$table->timestamp('last_seen')->nullable();
+            $table->foreignId('role_id')->constrained('roles','id')->onDelete('cascade');
+            $table->foreignId('department_id')->nullable()->constrained('departments')->cascadeOnUpdate()->nullOnDelete();
+            $table->timestamp('last_seen')->nullable();
             //$table->string('profile_photo_path', 2048)->nullable();
            // $table->string('phone')->nullable();
         });

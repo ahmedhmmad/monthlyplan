@@ -27,6 +27,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'role_id',
+        'department_id',
+        'phone',
+        'last_seen',
+        'profile_photo_path'
     ];
 
     /**
@@ -58,4 +64,46 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    protected $dates = [
+        'deleted_at'
+    ];
+
+    public function setUsernameAttribute($value)
+    {
+        $this->attributes['username'] = strtolower($value);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+
+    public function hasPermission($key)
+    {
+        return $this->role->permission->contains('key', $key);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+
+
+    public function scopeSearch($query, $term){
+        $query->where(function ($query) use ($term){
+            $query->where('username','like', "%$term%")
+                ->orWhere('name','like', "%$term%")
+                ->orWhere('email','like', "%$term%");
+        });
+    }
+
+    public function isOnline(){
+        return Cache::has('user-is-online' .$this->id);
+    }
 }

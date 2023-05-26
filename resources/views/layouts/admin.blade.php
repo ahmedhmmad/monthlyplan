@@ -17,12 +17,11 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" dir="rtl">
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-{{--            @livewire('navigation-menu')--}}
-{{--            @include('layouts.nav.web.navigation-menu')--}}
+            @livewire('navigation-menu')
 
             <!-- Page Heading -->
             @if (isset($header))

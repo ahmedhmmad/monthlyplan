@@ -22,7 +22,7 @@
 
         <div class="min-h-screen bg-gray-100">
 {{--            @livewire('navigation-menu')--}}
-            @include('layouts.nav.web.navigation-menu')
+{{--            @include('layouts.nav.web.navigation-menu')--}}
 
             <!-- Page Heading -->
             @if (isset($header))
